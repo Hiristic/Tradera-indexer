@@ -272,7 +272,7 @@ class Database:
             sql = f"""
                 SELECT i.*
                 FROM items i
-                JOIN items_fts f ON f.item_id = i.item_id
+                JOIN items_fts ON items_fts.item_id = i.item_id
                 WHERE items_fts MATCH ?
                 {('AND ' + ' AND '.join(filters)) if filters else ''}
                 ORDER BY rank

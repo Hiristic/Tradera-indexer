@@ -36,7 +36,12 @@ class ItemStatus(StrEnum):
 
 
 class Category(IntEnum):
-    """Top-level Tradera categories with their integer IDs."""
+    """Top-level Tradera categories with their official integer IDs.
+
+    These IDs are assigned by Tradera and may change if Tradera restructures
+    their category hierarchy. Verify against https://www.tradera.com/categories
+    if categories appear to be missing or returning no results.
+    """
 
     accessoarer = 1612
     antikt_design = 20

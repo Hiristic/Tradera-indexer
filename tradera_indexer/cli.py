@@ -260,8 +260,10 @@ def cmd_publish(
         data["start_price"] = start_price
     if buy_now_price is not None:
         data["buy_now_price"] = buy_now_price
-    data.setdefault("duration_days", duration)
-    data.setdefault("item_condition", condition)
+    if "duration_days" not in data:
+        data["duration_days"] = duration
+    if "item_condition" not in data:
+        data["item_condition"] = condition
 
     required = ("title", "description", "category_id", "start_price")
     missing = [k for k in required if not data.get(k)]
